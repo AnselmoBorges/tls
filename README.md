@@ -1,4 +1,4 @@
-# Prepare e implante certificados SSL
+# Preparo e implantação de certificados SSL
 
 Agora, para SSL / TLS, começaremos executando <a href="bin"> esses scripts </a> em um único nó na ordem. Você pode inspecionar cada um para ver o que eles fazem, mas em resumo, criamos nossa própria Autoridade de Certificação (autoridade de certificação raiz) junto com uma CA intermediária que emite os certificados assinados e criamos os formatos x509 e Java Keystore (JKS) para cada um, juntamente com em ambos os formatos. Uma vez criado, inspecione o conteúdo de cada usando **keytool -list -keystore keystore.jks-storepass** (para JKS) e **openssl x509 -in cert.pem -text -noout**. Você também pode verificar a validade do certificado x509 via openssl verify -CAfile cacerts cert.pem. Observe que os certificados criados devem ter as extensões:
 

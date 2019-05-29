@@ -24,6 +24,8 @@ A ordem na qual executar os scripts é a seguinte, mas antes disso, edite 0-SSLP
 ./5-CreateKeystore.sh
 ```
 
+Outro script que deve ser alterado é o ultimo **5-CreateKeystore.sh** onde vem o parâmetro do JAVA_HOME, garanta que alem do JDK você tenha o JRE tambem.
+
 Em seguida, em cada host, crie a estrutura de diretórios para os certificados e copie cada certificado para o host correspondente, e os CAcerts e cdh.truststore para todos os nós:
 
 ```

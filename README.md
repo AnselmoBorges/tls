@@ -1,6 +1,6 @@
-# Prepare and Deploy SSL Certificates
+# Prepare e implante certificados SSL
 
-Now for SSL/TLS we will start by running the scripts in <a href="bin">here</a> in a single node in order. You may inspect each to see what they do but in summary, we create our own Certificate Authority (root CA) along with an intermediate CA which issues the signed certificates, and create x509 and Java Keystore (JKS) formats for each, along with truststores in both formats. Once created, inspect the contents of each using keytool -list -keystore keystore.jks -storepass (for JKS) and openssl x509 -in cert.pem -text -noout. You can also verify the x509 certificate validity via openssl verify -CAfile cacerts cert.pem. Notice that the certificates created must have the extensions:
+Agora, para SSL / TLS, começaremos executando <a href="bin"> esses scripts </a> em um único nó na ordem. Você pode inspecionar cada um para ver o que eles fazem, mas em resumo, criamos nossa própria Autoridade de Certificação (autoridade de certificação raiz) junto com uma CA intermediária que emite os certificados assinados e criamos os formatos x509 e Java Keystore (JKS) para cada um, juntamente com em ambos os formatos. Uma vez criado, inspecione o conteúdo de cada usando **keytool -list -keystore keystore.jks-storepass** (para JKS) e **openssl x509 -in cert.pem -text -noout**. Você também pode verificar a validade do certificado x509 via openssl verify -CAfile cacerts cert.pem. Observe que os certificados criados devem ter as extensões:
 
 ```
 keyUsage = digitalSignature, keyEncipherment
@@ -8,13 +8,13 @@ extendedKeyUsage = serverAuth, clientAuth
 subjectAltName = @alt_names
 ```
 
-where subjectAltName is the fully qualified name of the hostname. If a load balancer will be used for services running on the host, you must also include the fully qualified name of the load balancer in the list of alternate names. For example:
+onde subjectAltName é o nome completo do nome do host. Se um balanceador de carga for usado para serviços em execução no host, você também deverá incluir o nome completo do balanceador de carga na lista de nomes alternativos. Por exemplo:
 
 ```
 subjectAltName = node1.mydomain.com,loadbalancer.mydomain.com
 ```
 
-The order in which to run the scripts is the following but before you do, edit 0-SSLProps.sh to ensure HOSTS is the list of fully qualified domain names for your cluster nodes along with any load balancer names if high availability will be enabled. The format is "fqdn.host.1,fqdn.load.balancer fqdn.host.2,fqdn.load.balancer ... fqdn.host.n" although you can omit the load balancer name for nodes that will not be running any load balanced roles:
+A ordem na qual executar os scripts é a seguinte, mas antes disso, edite 0-SSLProps.sh para garantir que HOSTS seja a lista de nomes de domínio completos para os nós do cluster junto com os nomes do balanceador de carga, se a alta disponibilidade for ativada. O formato é "fqdn.host.1, fqdn.load.balancer fqdn.host.2, fqdn.load.balancer ... fqdn.host.n", embora seja possível omitir o nome do balanceador de carga para nós que não serão executados qualquer função de balanceamento de carga:
 
 ```
 ./1-Cleanup.sh
@@ -24,7 +24,7 @@ The order in which to run the scripts is the following but before you do, edit 0
 ./5-CreateKeystore.sh
 ```
 
-Then on each host, create the directory structure for the certificates and copy each certificate to the corresponding host, and the CAcerts and cdh.truststore to all nodes:
+Em seguida, em cada host, crie a estrutura de diretórios para os certificados e copie cada certificado para o host correspondente, e os CAcerts e cdh.truststore para todos os nós:
 
 ```
 mkdir -p /opt/cloudera/security/jks

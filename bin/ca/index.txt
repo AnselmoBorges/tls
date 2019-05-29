@@ -1,1 +1,0 @@
-V	290526223916Z		1001	unknown	/C=BR/ST=SP/O=SPC/OU=SPCLAB/CN=intermediateca

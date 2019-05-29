@@ -2,8 +2,8 @@
 
 . ./0-SSLProps.sh
 
-JAVA_HOME=/usr/java/jdk1.8.0_211
-JAVA_SEC_LIB=$JAVA_HOME/jre/lib/security/
+JAVA_HOME=/usr/java/jre
+JAVA_SEC_LIB=$JAVA_HOME/lib/security/
 PATH=$JAVA_HOME/bin:$PATH
 
 for i in ${HOSTS}

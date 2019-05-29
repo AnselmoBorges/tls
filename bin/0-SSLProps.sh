@@ -1,12 +1,12 @@
 #!/bin/sh
 
-PASSWORD=passw0rd
+PASSWORD=spclab
 
-COUNTRY=US
-STATE=TX
-LOCALITY=Austin
-ORGNAME='O'
-ORGUNIT='OU'
+COUNTRY=BR
+STATE=SP
+LOCALITY='SAO PAULO'
+ORGNAME='SPC'
+ORGUNIT='SPCLAB'
 EMAIL=root@${DOMAIN}
 
-HOSTS=node1.fqdn.com,loadbc.fqdn.com node2.fqdn.com,loadbc.fqdn.com node3.fqdn.com,loadbc.fqdn.com
+HOSTS=sp-wmw-hdp-dev-01.spcdc.br,sp-wmw-hdp-dev-02.spcdc.br,sp-wmw-hdp-dev-03.spcdc.br,sp-wmw-hdp-dev-04.spcdc.br,sp-wmw-hdp-dev-05.spcdc.br,sp-wmw-hdp-dev-06.spcdc.br,sp-wmw-hdp-dev-07.spcdc.br,sp-wmw-hdp-dev-08.spcdc.br

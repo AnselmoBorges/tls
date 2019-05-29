@@ -2,7 +2,7 @@
 
 . ./0-SSLProps.sh
 
-JAVA_HOME=/usr/java/jdk1.7.0_67-cloudera/
+JAVA_HOME=/usr/java/jdk1.8.0_211
 JAVA_SEC_LIB=$JAVA_HOME/jre/lib/security/
 PATH=$JAVA_HOME/bin:$PATH
 

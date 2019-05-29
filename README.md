@@ -22,6 +22,7 @@ A ordem na qual executar os scripts é a seguinte, mas antes disso, edite 0-SSLP
 ./3-IntermediateCA.sh
 ./4-SignedCerts.sh
 ./5-CreateKeystore.sh
+./6-CreateDirectories.sh
 ```
 
 Outro script que deve ser alterado é o ultimo **5-CreateKeystore.sh** onde vem o parâmetro do JAVA_HOME, garanta que alem do JDK você tenha o JRE tambem.
